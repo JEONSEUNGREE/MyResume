@@ -57,7 +57,7 @@ function App() {
           <LightModel onLight={onLight} />
           <pointLight position={[50, 50, 50]} />
           
-          <StaticModel/>
+          {/* <StaticModel/> */}
           </Suspense>
         </Canvas>
         {!isLoading && (
