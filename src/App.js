@@ -52,13 +52,13 @@ function App() {
         <Canvas
           shadows
         >
-          <Suspense fallback={<LoadingPage setIsLoading={setIsLoading}/>}>
-          <CameraModel onMonitor={onMonitor} onTv={onTV} onRoom={onRoom} onAlbum={onAlbum} />
+          {/* <Suspense fallback={<LoadingPage setIsLoading={setIsLoading}/>}> */}
+          {/* <CameraModel onMonitor={onMonitor} onTv={onTV} onRoom={onRoom} onAlbum={onAlbum} /> */}
           <LightModel onLight={onLight} />
           <pointLight position={[50, 50, 50]} />
           
           {/* <StaticModel/> */}
-          </Suspense>
+          {/* </Suspense> */}
         </Canvas>
         {!isLoading && (
           <div className='wrapper'>
