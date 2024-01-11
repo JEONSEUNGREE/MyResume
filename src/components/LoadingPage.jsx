@@ -8,8 +8,10 @@ export default function LoadingPage({ setIsLoading }) {
     const textRef = useRef();
 
     useEffect(() => {
+        console.log("test")
         return(() => {
             setIsLoading(false);
+            alert("test")
         })
     }, []);
 
