@@ -118,7 +118,7 @@ export default function LightModel({ onLight }) {
         autoRotateSpeed={1}
         position={1}
       />
-      {/* <Room /> */}
+      <Room />
     </>
   )
 }
