@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useThree, useFrame } from '@react-three/fiber';
 import { Vector3 } from 'three';
 
@@ -13,7 +13,6 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
   const monitorLookAt = new Vector3(-20, 0, 0);
 
   const roomPos = new Vector3(20, 20, 10);
-  const roomLookAt = new Vector3(-10, 0, -5);
 
   const tvPos = new Vector3(5, 5, 5);
   const tvLookAt = new Vector3(5, 10, -25);

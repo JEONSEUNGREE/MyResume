@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useThree } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei' 
 import { Room } from './Room';
 
 export default function LightModel({ onLight }) {
