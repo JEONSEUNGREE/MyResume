@@ -62,35 +62,35 @@ function App() {
         </Canvas>
         {!isLoading && (
           <div className='wrapper'>
-            <a href="" onClick={focusMonitor}>
+            <a onClick={focusMonitor}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
               Monitor
             </a>
-            <a href="" onClick={focusTv}>
+            <a onClick={focusTv}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
               TV
             </a>
-            <a href="" onClick={focusRoom}>
+            <a onClick={focusRoom}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
               Room
             </a>
-            <a href=""  onClick={turnOnLight}>
+            <a onClick={turnOnLight}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
               Light
             </a>
-            <a href="" onClick={focusAlbum}>
+            <a onClick={focusAlbum}>
                 <span></span>
                 <span></span>
                 <span></span>
