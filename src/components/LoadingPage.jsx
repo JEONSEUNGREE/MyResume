@@ -46,9 +46,9 @@ export default function LoadingPage({ setIsLoading }) {
                 saturation={1}
                 fade
                 speed={10}
-            />  
-        </Float>
-    </Center>
+            />
+            </Float>
+        </Center>
     </>
   )
 }

@@ -17,8 +17,8 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
   const tvPos = new Vector3(5, 5, 5);
   const tvLookAt = new Vector3(5, 10, -25);
 
-  const albumPos = new Vector3(-6, 10.5, -4);
-  const albumLookAt = new Vector3(-7, 9, -50);
+  const albumPos = new Vector3(-5, 10, -3.2);
+  const albumLookAt = new Vector3(-5, 3, -55);
 
   const cameraSpeed = 0.02;
 

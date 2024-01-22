@@ -9,7 +9,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from 'three';
 
 export function Room(props) {
-  const { nodes, materials } = useGLTF('./models/my_room3.glb')
+  const { nodes, materials } = useGLTF('./models/my_room.glb')
   const texture = useTexture('./texture/BakedRoom.jpg')
 
   texture.flipY = false;
@@ -23,47 +23,46 @@ export function Room(props) {
   // material={textureMaterial}
   return (
     <group {...props} dispose={null}>
-      <mesh name="WALL" geometry={nodes.WALL.geometry} material={textureMaterial} position={[0.026, 9.965, 0]} />
-      <mesh name="TV_TABLE" geometry={nodes.TV_TABLE.geometry} material={textureMaterial} position={[19.204, 3.844, -8.207]} />
-      <mesh name="TV" geometry={nodes.TV.geometry} material={textureMaterial} position={[6.515, 9.466, -7.107]} rotation={[0.093, 0, 0]} />
-      <mesh name="TABLE" geometry={nodes.TABLE.geometry} material={textureMaterial} position={[-7.088, 5.324, -0.549]} />
-      <mesh name="BOOK_SHELF_MIDDLE" geometry={nodes.BOOK_SHELF_MIDDLE.geometry} material={textureMaterial} position={[-8.604, 9.237, 7.207]} />
-      <mesh name="BOOK_SHELF_TOP" geometry={nodes.BOOK_SHELF_TOP.geometry} material={textureMaterial} position={[-8.604, 11.173, 7.872]} />
-      <mesh name="BOOK_SHELF_LOWER" geometry={nodes.BOOK_SHELF_LOWER.geometry} material={textureMaterial} position={[-8.604, 7.154, 7.872]} />
-      <mesh name="GRABAGE" geometry={nodes.GRABAGE.geometry} material={textureMaterial} position={[-7.39, 1.707, 7.724]} />
-      <mesh name="MonitorArmBase" geometry={nodes.MonitorArmBase.geometry} material={textureMaterial} position={[-8.937, 4.577, -2.415]} />
-      <mesh name="RIGHT_MONITOR" geometry={nodes.RIGHT_MONITOR.geometry} material={textureMaterial} position={[-8.393, 7.193, -3.485]} />
-      <mesh name="MONITOR_FIX" geometry={nodes.MONITOR_FIX.geometry} material={textureMaterial} position={[-8.464, 7.235, -3.424]} />
-      <mesh name="MONITOR_RIGHT" geometry={nodes.MONITOR_RIGHT.geometry} material={textureMaterial} position={[-8.356, 6.949, 0.161]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh name="MONITOR_FIX2" geometry={nodes.MONITOR_FIX2.geometry} material={textureMaterial} position={[-8.427, 6.888, -0.358]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh name="GARBAGE_PEDAL" geometry={nodes.GARBAGE_PEDAL.geometry} material={textureMaterial} position={[-6.57, 0.737, 7.735]} />
-      <mesh name="KEYBOARD_PAD" geometry={nodes.KEYBOARD_PAD.geometry} material={textureMaterial} position={[-6.242, 4.549, -0.625]} />
-      <mesh name="NOTEBOOK_STAND3" geometry={nodes.NOTEBOOK_STAND3.geometry} material={textureMaterial} position={[-7.524, 4.654, 3.78]} rotation={[0, Math.PI / 2, 0]} />
-      <mesh name="NOTEBOOK" geometry={nodes.NOTEBOOK.geometry} material={textureMaterial} position={[-7.489, 5.205, 3.868]} rotation={[0, 0, -0.681]} />
-      <mesh name="KEYBOARD_HOUSING" geometry={nodes.KEYBOARD_HOUSING.geometry} material={textureMaterial} position={[-6.211, 4.663, -0.069]} />
-      <mesh name="MAGICPAD" geometry={nodes.MAGICPAD.geometry} material={textureMaterial} position={[-6.021, 4.583, -3.035]} rotation={[0, 0, 0.067]} />
-      <mesh name="WALL_ALBUM" geometry={nodes.WALL_ALBUM.geometry} material={textureMaterial} position={[-7.283, 10.282, -6.813]} />
-      <mesh name="WALL_ALBUM2" geometry={nodes.WALL_ALBUM2.geometry} material={textureMaterial} position={[-4.646, 10.282, -6.813]} />
-      <mesh name="ALBUM_LIGHT" geometry={nodes.ALBUM_LIGHT.geometry} material={textureMaterial} position={[-5.815, 14.725, -2.985]} />
-      <mesh name="TV_FIX" geometry={nodes.TV_FIX.geometry} material={textureMaterial} position={[6.515, 9.466, -7.252]} rotation={[0.078, -0.01, -0.003]} />
-      <mesh name="SPEAKER_RIGHT" geometry={nodes.SPEAKER_RIGHT.geometry} material={textureMaterial} position={[12.467, 2.752, -7.312]} />
-      <mesh name="SPEAKER_LEFT" geometry={nodes.SPEAKER_LEFT.geometry} material={textureMaterial} position={[0.48, 2.752, -7.312]} />
-      <mesh name="SETTOP" geometry={nodes.SETTOP.geometry} material={textureMaterial} position={[9.835, 4.028, -7.442]} />
-      <mesh name="REMOTE_CONTROLLER" geometry={nodes.REMOTE_CONTROLLER.geometry} material={textureMaterial} position={[8.624, 3.949, -7.48]} />
-      <mesh name="BOOK_1" geometry={nodes.BOOK_1.geometry} material={textureMaterial} position={[-8.243, 7.999, 8.703]} />
-      <mesh name="BOOK_2" geometry={nodes.BOOK_2.geometry} material={textureMaterial} position={[-8.243, 7.999, 7.036]} />
-      <mesh name="BOOK_3" geometry={nodes.BOOK_3.geometry} material={textureMaterial} position={[-8.243, 10.098, 8.219]} />
-      <mesh name="BOOK_4" geometry={nodes.BOOK_4.geometry} material={textureMaterial} position={[-8.243, 10.098, 6.943]} rotation={[0.328, 0, 0]} />
-      <mesh name="BOOK_5" geometry={nodes.BOOK_5.geometry} material={textureMaterial} position={[-8.243, 12.015, 8.935]} />
-      <mesh name="BOOK_6" geometry={nodes.BOOK_6.geometry} material={textureMaterial} position={[-8.527, 11.397, 7.378]} rotation={[Math.PI / 2, 0, -0.47]} />
-      <mesh name="BOOK_7" geometry={nodes.BOOK_7.geometry} material={textureMaterial} position={[-8.527, 11.702, 7.378]} rotation={[Math.PI / 2, 0, 0.41]} />
-      <mesh name="SOFA" geometry={nodes.SOFA.geometry} material={textureMaterial} position={[8.976, 1.908, 5.25]} rotation={[Math.PI, 0, Math.PI]} scale={[1.824, 0.494, 1.785]} />
-      <mesh name="CHAIR" geometry={nodes.CHAIR.geometry} material={textureMaterial} position={[-1.095, 3.348, -0.854]} rotation={[0, 0.611, 0]} scale={[1.198, 0.114, 1.091]} />
-      <mesh name="IPHONE" geometry={nodes.IPHONE.geometry} material={textureMaterial} position={[-8.83, 4.919, -8.264]} scale={[1, 1, 0.782]} />
-      <mesh name="PHONE_FIX" geometry={nodes.PHONE_FIX.geometry} material={textureMaterial} position={[-8.742, 5.104, -8.212]} scale={[1, 1, 0.782]} />
+      <mesh geometry={nodes.WALL.geometry} material={textureMaterial} position={[0.026, 9.965, 0]} />
+      <mesh geometry={nodes.TV_TABLE.geometry} material={textureMaterial} position={[19.204, 3.844, -8.207]} />
+      <mesh geometry={nodes.TV.geometry} material={textureMaterial} position={[6.515, 9.466, -7.107]} rotation={[0.093, 0, 0]} />
+      <mesh geometry={nodes.TABLE.geometry} material={textureMaterial} position={[-7.088, 5.324, -0.549]} />
+      <mesh geometry={nodes.BOOK_SHELF_MIDDLE.geometry} material={textureMaterial} position={[-8.604, 9.237, 7.207]} />
+      <mesh geometry={nodes.BOOK_SHELF_TOP.geometry} material={textureMaterial} position={[-8.604, 11.173, 7.872]} />
+      <mesh geometry={nodes.BOOK_SHELF_LOWER.geometry} material={textureMaterial} position={[-8.604, 7.154, 7.872]} />
+      <mesh geometry={nodes.GRABAGE.geometry} material={textureMaterial} position={[-7.39, 1.707, 7.724]} />
+      <mesh geometry={nodes.MonitorArmBase.geometry} material={textureMaterial} position={[-8.937, 4.577, -2.415]} />
+      <mesh geometry={nodes.RIGHT_MONITOR.geometry} material={textureMaterial} position={[-8.393, 7.193, -3.485]} />
+      <mesh geometry={nodes.MONITOR_FIX.geometry} material={textureMaterial} position={[-8.464, 7.235, -3.424]} />
+      <mesh geometry={nodes.MONITOR_RIGHT.geometry} material={textureMaterial} position={[-8.356, 6.949, 0.161]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.MONITOR_FIX2.geometry} material={textureMaterial} position={[-8.427, 6.888, -0.358]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.GARBAGE_PEDAL.geometry} material={textureMaterial} position={[-6.57, 0.737, 7.735]} />
+      <mesh geometry={nodes.KEYBOARD_PAD.geometry} material={textureMaterial} position={[-6.242, 4.549, -0.625]} />
+      <mesh geometry={nodes.NOTEBOOK_STAND3.geometry} material={textureMaterial} position={[-7.524, 4.654, 3.78]} rotation={[0, Math.PI / 2, 0]} />
+      <mesh geometry={nodes.NOTEBOOK.geometry} material={textureMaterial} position={[-7.489, 5.205, 3.868]} rotation={[0, 0, -0.681]} />
+      <mesh geometry={nodes.KEYBOARD_HOUSING.geometry} material={textureMaterial} position={[-6.211, 4.663, -0.069]} />
+      <mesh geometry={nodes.MAGICPAD.geometry} material={textureMaterial} position={[-6.021, 4.583, -3.035]} rotation={[0, 0, 0.067]} />
+      <mesh geometry={nodes.WALL_ALBUM.geometry} material={textureMaterial} position={[-7.283, 10.282, -6.813]} />
+      <mesh geometry={nodes.WALL_ALBUM2.geometry} material={textureMaterial} position={[-4.646, 10.282, -6.813]} />
+      <mesh geometry={nodes.ALBUM_LIGHT.geometry} material={textureMaterial} position={[-5.815, 14.725, -2.985]} />
+      <mesh geometry={nodes.TV_FIX.geometry} material={textureMaterial} position={[6.515, 9.466, -7.252]} rotation={[0.078, -0.01, -0.003]} />
+      <mesh geometry={nodes.SPEAKER_RIGHT.geometry} material={textureMaterial} position={[12.467, 2.752, -7.312]} />
+      <mesh geometry={nodes.SPEAKER_LEFT.geometry} material={textureMaterial} position={[0.48, 2.752, -7.312]} />
+      <mesh geometry={nodes.SETTOP.geometry} material={textureMaterial} position={[9.835, 4.028, -7.442]} />
+      <mesh geometry={nodes.REMOTE_CONTROLLER.geometry} material={textureMaterial} position={[8.624, 3.949, -7.48]} />
+      <mesh geometry={nodes.BOOK_1.geometry} material={textureMaterial} position={[-8.243, 7.999, 8.703]} />
+      <mesh geometry={nodes.BOOK_2.geometry} material={textureMaterial} position={[-8.243, 7.999, 7.036]} />
+      <mesh geometry={nodes.BOOK_3.geometry} material={textureMaterial} position={[-8.243, 10.098, 8.219]} />
+      <mesh geometry={nodes.BOOK_4.geometry} material={textureMaterial} position={[-8.243, 10.098, 6.943]} rotation={[0.328, 0, 0]} />
+      <mesh geometry={nodes.BOOK_5.geometry} material={textureMaterial} position={[-8.243, 12.015, 8.935]} />
+      <mesh geometry={nodes.BOOK_6.geometry} material={textureMaterial} position={[-8.527, 11.397, 7.378]} rotation={[Math.PI / 2, 0, -0.47]} />
+      <mesh geometry={nodes.BOOK_7.geometry} material={textureMaterial} position={[-8.527, 11.702, 7.378]} rotation={[Math.PI / 2, 0, 0.41]} />
+      <mesh geometry={nodes.CHAIR.geometry} material={textureMaterial} position={[-1.095, 3.348, -0.854]} rotation={[0, 0.611, 0]} scale={[1.198, 0.114, 1.091]} />
+      <mesh geometry={nodes.IPHONE.geometry} material={textureMaterial} position={[-8.83, 4.919, -8.264]} scale={[1, 1, 0.782]} />
+      <mesh geometry={nodes.PHONE_FIX.geometry} material={textureMaterial} position={[-8.742, 5.104, -8.212]} scale={[1, 1, 0.782]} />
+      <mesh geometry={nodes.SOFA2.geometry} material={textureMaterial} position={[8.472, 1.349, 5.234]} scale={[2.101, 0.558, 2.146]} />
     </group>
   )
 }
 
-
-useGLTF.preload('./models/my_room3.glb')
+useGLTF.preload('./models/my_room.glb')

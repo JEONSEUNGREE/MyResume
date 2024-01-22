@@ -1,4 +1,4 @@
-import React, { useState, useCallback, Suspense } from 'react';
+import React, { useState, useCallback, Suspense, useEffect } from 'react';
 import './App.css';
 import { Canvas } from '@react-three/fiber';
 import LightModel from './components/LightModel';
@@ -14,6 +14,16 @@ function App() {
   const [onAlbum, setOnAlbum] = useState(false);
   const [onLight, setOnLight] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMinimumDelayElapsed, setIsMinimumDelayElapsed] = useState(false);
+
+  //로딩화면 최소 2초
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMinimumDelayElapsed(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const focusRoom = useCallback(() => {
     setOnRoom(true);
@@ -52,12 +62,16 @@ function App() {
         <Canvas
           shadows
         >
-          <Suspense fallback={<LoadingPage setIsLoading={setIsLoading}/>}>
-          <CameraModel onMonitor={onMonitor} onTv={onTV} onRoom={onRoom} onAlbum={onAlbum} />
-          <LightModel onLight={onLight} />
-          <pointLight position={[50, 50, 50]} />
-          
-          <StaticModel/>
+            <Suspense fallback={<LoadingPage setIsLoading={setIsLoading}/>}>
+              {
+                !isMinimumDelayElapsed ? <LoadingPage setIsLoading={setIsLoading}/> :
+                <>
+                  <CameraModel onMonitor={onMonitor} onTv={onTV} onRoom={onRoom} onAlbum={onAlbum} />
+                  <LightModel onLight={onLight} />
+                  <pointLight position={[50, 50, 50]} />
+                  <StaticModel/>
+                </>
+            }
           </Suspense>
         </Canvas>
         {!isLoading && (
