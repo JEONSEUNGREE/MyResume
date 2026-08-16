@@ -186,7 +186,7 @@ export default function StaticModel() {
         </mesh>
 
         <mesh ref={textRef} position={[-5.5, 6.4, -6.7]} rotation={[0, 0, 0]}>
-          <LinkedText text={`안녕하세요! \n익숙함 보다는 새로운 도전을 좋아하는\n3년차 개발자 입니다\n\n주로 백엔드와 서버에 관심이 많으며,\n개발 공부를 하며 블로그에 학습 내용을\n기록하고 있습니다.\n\n직장에서 풀스택으로 작업이 주를 이루\n지만, 개인적인 시간에는 백엔드 기술과\n서버 관리에 대한 공부를 주로 진행하고\n좋아합니다.\n\n현재 제일 관심있는분야는 AI입니다.`} url="https://tistory.com" position={[0,2.2,0]} isPop={true} /> 
+          <LinkedText text={`프로젝트에 필요한 기술을 빠르게\n학습하고 활용하는 데에 강점을 가진\n6년 차 개발자입니다.\n\nSI에서 주로 커머스 서비스를\n개발·운영하다, 지금은 자사 서비스를\n직접 설계하고 운영하고 있습니다.\n\n전반의 흐름을 다루지만, 관심은 늘\n시스템의 안정성과 확장성에 있습니다.\n\n좋아 보이는 스택보다, 팀의 자원과 일정\n안에서 끝까지 운영할 수 있는 구조를\n고릅니다.`} url="https://tistory.com" position={[0,2.2,0]} isPop={true} />
           <LinkedText text="                      |                    |" url="https://tistory.com" position={[0,0.35,0]} isPop={true} /> 
           <LinkedText text="GitHub   " url={gitHubLink} position={[0,0.35,0]} />
           <LinkedText text="Blog  " url={blogLink} position={[0.6,0.35,0]} /> 

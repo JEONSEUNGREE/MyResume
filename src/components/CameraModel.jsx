@@ -21,8 +21,8 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
   const albumLookAt = new Vector3(-5, 3, -55);
 
   // 60fps 기준 값. 프레임 수가 아니라 경과 시간(delta)으로 환산해서 사용한다
-  const cameraSpeed = 0.01;
-  const thetaSpeed = 0.005;
+  const cameraSpeed = 0.015;
+  const thetaSpeed = 0.0075;
 
   // 주사율/성능에 상관없이 같은 속도로 보간되도록 alpha를 시간 기준으로 환산
   const frameAlpha = (speed, delta) => 1 - Math.pow(1 - speed, delta * 60);
@@ -67,7 +67,7 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
       const pos = new Vector3(x , 0 , y - 35);
       const lookAt = new Vector3(-15, -5, -15);
   
-      camera.position.lerp(pos, frameAlpha(0.0005, delta));
+      camera.position.lerp(pos, frameAlpha(0.00075, delta));
       camera.position.lerp(roomPos, alpha);
       camera.lookAt(lookAt);
     }
