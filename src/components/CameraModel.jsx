@@ -20,7 +20,12 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
   const albumPos = new Vector3(-5, 10, -3.2);
   const albumLookAt = new Vector3(-5, 3, -55);
 
-  const cameraSpeed = 0.02;
+  // 60fps 기준 값. 프레임 수가 아니라 경과 시간(delta)으로 환산해서 사용한다
+  const cameraSpeed = 0.01;
+  const thetaSpeed = 0.005;
+
+  // 주사율/성능에 상관없이 같은 속도로 보간되도록 alpha를 시간 기준으로 환산
+  const frameAlpha = (speed, delta) => 1 - Math.pow(1 - speed, delta * 60);
 
   useEffect(() => {
       setFocusMonitor(onMonitor);
@@ -31,15 +36,18 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
   let direction = 1; // 움직이는 방향: 1이면 정방향, -1이면 반대방향
   let theta = 0; // 원의 각도
   
-  useFrame((state) => {
+  useFrame((state, rawDelta) => {
+    // 탭 전환 등으로 delta가 튀면 카메라가 순간이동하므로 상한을 둔다
+    const delta = Math.min(rawDelta, 1 / 30);
+    const alpha = frameAlpha(cameraSpeed, delta);
 
     if(foucsAlbum){
-      camera.position.lerp(albumPos, cameraSpeed);
+      camera.position.lerp(albumPos, alpha);
       camera.lookAt(albumLookAt);
     }
 
     if(focusRoom){
-      camera.position.lerp(albumPos, cameraSpeed);
+      camera.position.lerp(albumPos, alpha);
       camera.lookAt(albumLookAt);
 
       const radius = 500; // 원의 반지름
@@ -50,7 +58,7 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
       } else if (theta <= 0 && direction === -1) {
         direction = 1; // 다시 정방향으로 움직이도록 방향 변경
       }
-      theta += direction * 0.01; // 원의 각도 업데이트
+      theta += direction * thetaSpeed * delta * 60; // 원의 각도 업데이트
   
       // 원의 궤도를 따라 카메라의 위치 계산
       const x = radius * Math.cos(theta) + 1;
@@ -59,14 +67,14 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
       const pos = new Vector3(x , 0 , y - 35);
       const lookAt = new Vector3(-15, -5, -15);
   
-      camera.position.lerp(pos, 0.001);
-      camera.position.lerp(roomPos, cameraSpeed);
+      camera.position.lerp(pos, frameAlpha(0.0005, delta));
+      camera.position.lerp(roomPos, alpha);
       camera.lookAt(lookAt);
     }
 
     // 한번더 state를 둔 이유는 useFrame에서 props를 바로 사용하게 되면 false일때 원점을 바라봄
     if (focusMonitor) {
-      camera.position.lerp(monitorPos, cameraSpeed);
+      camera.position.lerp(monitorPos, alpha);
       camera.lookAt(monitorLookAt);
       camera.position.x = Math.max(-5, Math.min(5, camera.position.x));
       camera.position.y = Math.max(-5, Math.min(10, camera.position.y));
@@ -75,7 +83,7 @@ export default function CameraModel({ onMonitor, onTv, onRoom, onAlbum }) {
 
 
     if (focusTV) {
-      camera.position.lerp(tvPos, cameraSpeed);
+      camera.position.lerp(tvPos, alpha);
       camera.lookAt(tvLookAt);
       camera.position.x = Math.max(-5, Math.min(5, camera.position.x));
       camera.position.y = Math.max(-5, Math.min(10, camera.position.y));
